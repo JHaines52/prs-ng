@@ -1,0 +1,63 @@
+<app-menu></app-menu>
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input Form</title>
+    <link rel="stylesheet" href="request-create.component.css">
+</head>
+<body>
+  <div class="form-container">
+    <span class="component-title">{{ title }}</span>
+    <p *ngIf="!request">Loading...</p>
+    <div *ngIf="request">
+      <main class="single">
+        <table class="table table-sm">
+            <tr>
+                <td>User:</td>
+                <td>
+                    <input class="rounded" type="text" value="userFirstname, userLastname" disabled />
+                </td>
+              </tr>
+              <tr>
+                <td>Description:</td>
+                <td>
+                    <input [(ngModel)]="request.description" class="rounded" type="text"  />
+                </td>
+              </tr>
+              <tr>
+                <td>Justification:</td>
+                <td>
+                  <input [(ngModel)]="request.justification" class="rounded" type="text"  />
+                </td>
+              </tr>
+              <tr>
+                <td>DateNeeded:</td>
+                <td>
+                    <input [(ngModel)]="request.dateNeeded" class="rounded" type="datetime"  />
+                </td>
+              </tr>
+              <tr>
+                <td>DeliveryMode:</td>
+                <td>
+                    <select [(ngModel)]="request.deliveryMode" class="rounded" id="drop">
+                     <option value="pickup">Pick-up</option>
+                     <option value="delivery">Delivery</option>
+                     <option value="magic">Magic Courier</option>
+                     <option value="eagle">Enchanted Eagle</option>
+                      </select>
+                </td>
+              </tr>
+
+            </table>
+        </main>
+        <span
+          ><button (click)="save()" class="btn btn-sm btn-primary">
+            Save
+          </button></span>
+      </div>
+    </div>
+</body>
+
+
+

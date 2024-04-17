@@ -1,0 +1,79 @@
+<app-menu></app-menu>
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input Form</title>
+    <link rel="stylesheet" href="user-edit.component.css">
+</head>
+<body>
+  <div class="form-container">
+    <span class="component-title">{{ title }}</span>
+    <p *ngIf="!user">Loading...</p>
+    <div *ngIf="user">
+      <main class="single">
+        <table class="table table-sm">
+          <tr>
+            <td><label for="id">Id:</label></td>
+            <td>
+              <input [(ngModel)]="user.id" class="rounded" type="text" id="id"  disabled/>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="username">Username:</label></td>
+            <td>
+              <input [(ngModel)]="user.username" class="rounded" type="text" id="username" name="username" />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="password">Password:</label></td>
+            <td>
+              <input [(ngModel)]="user.password" class="rounded" type="text" id="password" name="password" />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="firstname">First Name:</label></td>
+            <td>
+              <input [(ngModel)]="user.firstname" class="rounded" type="text" id="firstname" name = "firstname" />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="lastname">Last Name:</label></td>
+            <td>
+              <input [(ngModel)]="user.lastname" class="rounded" type="text" id="lastname" name="lastname" />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="phone">Phone</label></td>
+            <td>
+              <input [(ngModel)]="user.phone" class="rounded" type="text" id="phone" />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="email">Email:</label></td>
+            <td>
+              <input [(ngModel)]="user.email" class="rounded" type="text" id="email" />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="reviewer">Reviewer:</label></td>
+            <td>
+              <input [(ngModel)]="user.reviewer" class="rounded" type="checkbox" id="reviewer" name="reviewer" />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="admin">Admin:</label></td>
+            <td>
+                <input [(ngModel)]="user.admin" class="rounded" type="checkbox" id="admin" name="admin" />
+            </td>
+          </tr>
+        </table>
+      </main>
+      <span>
+        <button (click)="save()" class="btn btn-sm btn-primary">Edit</button>
+      </span>
+      <p *ngIf="message">{{ message }}</p>
+    </div>
+  </div>
+</body>
+

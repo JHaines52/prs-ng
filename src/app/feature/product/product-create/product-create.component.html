@@ -1,0 +1,65 @@
+<app-menu></app-menu>
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Input Form</title>
+    <link rel="stylesheet" href="product-create.component.css">
+</head>
+<body>
+  <div class="form-container">
+    <span class="component-title">{{ title }}</span>
+    <p *ngIf="!product">Loading...</p>
+    <div *ngIf="product">
+      <main class="single">
+        <table class="table table-sm">
+            <tr>
+                <td>Vendor:</td>
+                <td>
+                    <select [(ngModel)]="product.vendor" class="rounded">
+                    <option *ngFor="let v of vendors" [ngValue]="v">{{v.name}}</option>
+                    </select>         
+                </td>
+              </tr>
+              <tr>
+                <td>Part Number:</td>
+                <td>
+                    <input [(ngModel)]="product.partNumber" class="rounded" type="text"  />
+                </td>
+              </tr>
+              <tr>
+                <td>Name:</td>
+                <td>
+                  <input [(ngModel)]="product.name" class="rounded" type="text"  />
+                </td>
+              </tr>
+              <tr>
+                <td>Price:</td>
+                <td>
+                    <input [(ngModel)]="product.price" class="rounded" type="number"  />
+                </td>
+              </tr>
+              <tr>
+                <td>unit</td>
+                <td>
+                  <input [(ngModel)]="product.unit" class="rounded" type="text"  />
+                </td>
+              </tr>
+              <tr>
+                <td>Photo Path:</td>
+                <td>
+                  <input [(ngModel)]="product.photoPath" class="rounded" type="url"  />
+                </td>
+              </tr>
+            </table>
+        </main>
+        <span
+          ><button (click)="save()" class="btn btn-sm btn-primary">
+            Save
+          </button></span>
+      </div>
+    </div>
+</body>
+
+
+

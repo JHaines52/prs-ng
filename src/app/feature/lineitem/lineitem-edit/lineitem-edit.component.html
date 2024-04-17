@@ -1,0 +1,33 @@
+<app-menu></app-menu>
+  <div class="form-container">
+    <span class="component-title">{{ title }}</span>
+    <p *ngIf="!lineitem">Loading...</p>
+    <div *ngIf="lineitem">
+      <main class="single">
+        <table class="table table-sm">
+            <tr *ngModel="lineitem.request">
+                <td>Request:</td>
+                <td>
+                   {{lineitem.request.description}}
+                </td>
+              </tr>
+              <tr *ngModel="lineitem.product">
+                <td>Product:</td>
+                <td>
+                  {{lineitem.product.name}}
+                </td>
+              </tr>
+              <tr>
+                <td>Quantity:</td>
+                <td>
+                  <input [(ngModel)]="lineitem.quantity" class="rounded" type="number" />
+                </td>
+              </tr>
+            </table>
+          </main>
+          <span
+            ><button (click)="save()" class="btn btn-sm btn-primary">
+              Save
+            </button></span>
+        </div>
+      </div>

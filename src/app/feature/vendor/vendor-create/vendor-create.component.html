@@ -1,0 +1,81 @@
+<app-menu></app-menu>
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Input Form</title>
+    <link rel="stylesheet" href="vendor-create.component.css">
+</head>
+<body>
+  <div class="form-container">
+    <span class="component-title">[{{ title }}]</span>
+    <p *ngIf="!vendor">Loading...</p>
+    <div *ngIf="vendor">
+      <main class="single">
+        <table class="table table-sm">
+          <tr>
+            <td><label for="id">Id:</label></td>
+            <td>
+              <input [(ngModel)]="vendor.id" class="rounded" type="text" id="id"  disabled/>
+            </td>
+          </tr>
+          <tr>
+            <td>Code:</td>
+            <td>
+                <input [(ngModel)]="vendor.code" class="rounded" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td>Name:</td>
+            <td>
+              <input [(ngModel)]="vendor.name" class="rounded" type="text"  />
+            </td>
+          </tr>
+          <tr>
+            <td>Address:</td>
+            <td>
+              <input [(ngModel)]="vendor.address" class="rounded" type="text"  />
+            </td>
+          </tr>
+          <tr>
+            <td>City:</td>
+            <td>
+              <input [(ngModel)]="vendor.city" class="rounded" type="text"  />
+            </td>
+          </tr>
+          <tr>
+            <td>Region:</td>
+            <td>
+              <input [(ngModel)]="vendor.region" class="rounded" type="text"  />
+            </td>
+          </tr>
+          <tr>
+            <td>Zip:</td>
+            <td>
+                <input [(ngModel)]="vendor.zip" class="rounded" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td>
+              <input [(ngModel)]="vendor.phone" class="rounded" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td>
+              <input [(ngModel)]="vendor.email" class="rounded" type="text"  />
+            </td>
+          </tr>
+        </table>
+      </main>
+      <span>
+        <button (click)="save()" class="btn btn-sm btn-primary">Save</button>
+      </span>
+      <p *ngIf="message">{{ message }}</p>
+    </div>
+  </div>
+</body>
+
+
+

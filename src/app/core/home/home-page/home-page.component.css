@@ -1,0 +1,58 @@
+/* Home Page Component Styles */
+
+
+.home-page {
+  padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+div{
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-image: url(/src/assets/images/home.png);
+
+}
+.home-header h1 {
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.no-bullets {
+    list-style-type: none;
+  }
+
+.home-header nav a {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    text-shadow: #0f0730;
+    text-decoration: none;
+}
+
+.home-header nav a:hover {
+    text-decoration:cadetblue;
+}
+
+.home-main {
+    padding: 20px;
+    text-align: center;
+    color: cyan;
+}
+
+.home-main h2 {
+    color: #f8f7f7;
+}
+
+.features{
+    color: aliceblue;
+}
+
+.home-footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+}

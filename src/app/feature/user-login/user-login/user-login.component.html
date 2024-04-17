@@ -1,0 +1,58 @@
+<app-menu class="menu"></app-menu>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="user-login.component.css">
+</head>
+<div class="app-container">
+<span>
+    <h1>Login Page</h1>
+  </span>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <form class="text-center" style="display: inline-block">
+            <table *ngIf="userLogin"  class="table-sm">
+              <tr class="text-center">
+                <td colspan="2">Login</td>
+              </tr>
+              <tr>
+                <td>Username:</td>
+                <td>
+                  <input
+                    [(ngModel)]="userLogin.username"
+                    name="UserName"
+                    type="text"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Password:</td>
+                <td>
+                  <input
+                    [(ngModel)]="userLogin.password"
+                    name="Password"
+                    type="password"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center" colspan="2">
+                  <button type="submit" (click)="login()" class="btn btn-primary">
+                    Login
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <label class="text-danger">{{ message }}</label>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

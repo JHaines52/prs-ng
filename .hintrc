@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "axe/forms": "off",
+    "meta-viewport": "off",
+    "axe/text-alternatives": [
+      "default",
+      {
+        "input-image-alt": "off"
+      }
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+<app-menu></app-menu>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request List</title>
+    <link rel="stylesheet" href="request-list.component.css">
+</head>
+<body>
+<div class="purchase-request">
+    <section class="heading">
+      <span class="page-title font-weight-bold font-italic">[{{ title }}]</span>
+      <a routerLink="/request/create">
+        <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
+  </a>
+    </section>
+    <table *ngIf="requests" class="table table-sm table-striped">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Description</th>
+          <th>Justification</th>
+          <th>Status</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let request of requests">
+          <td>{{ request.user.firstname }} {{ request.user.lastname }}</td>
+          <td>{{ request.description }}</td>
+          <td>{{request.justification}}</td>
+          <td>{{request.status}} </td>
+          <td>{{ request.total}}</td>
+          <td>
+            <a routerLink="/request/detail/{{ request.id }}">
+              <img
+                width="20"
+                height="20"
+                src="assets/details.png"
+                title="Request Details"
+              />
+            </a>
+            <span *ngIf="requestStatusReview">
+            <a routerLink="/request/edit/{{ request.id }}">
+              <img
+                width="20"
+                height="20"
+                src="assets/pencil-icon.png"
+                title="Edit Request"
+              />
+            </a>
+          </span>
+            <a routerLink="/lineitem/edit/{{ request.id }}">
+              <img
+                width="20"
+                height="20"
+                src="assets/lines.png"
+                title="Edit Lineitems"
+              />
+            </a>
+          
+         </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+
