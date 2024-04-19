@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomePageComponent } from './core/home/home-page/home-page.component';
 import { UserCreateComponent } from './feature/user/user-create/user-create.component';
 import { UserEditComponent } from './feature/user/user-edit/user-edit.component';
 import { FormsModule } from '@angular/forms';
@@ -21,25 +22,27 @@ import { ProductDetailComponent } from './feature/product/product-detail/product
 import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
 import { VendorListComponent } from './feature/vendor/vendor-list/vendor-list.component';
 import { ProductListComponent } from './feature/product/product-list/product-list.component';
+import { LinesComponent } from './feature/lineitem/lines/lines.component';
 import { LineitemCreateComponent } from './feature/lineitem/lineitem-create/lineitem-create.component';
 import { LineitemEditComponent } from './feature/lineitem/lineitem-edit/lineitem-edit.component';
 import { LineitemDetailComponent } from './feature/lineitem/lineitem-detail/lineitem-detail.component';
 import { UserLoginComponent } from './feature/user-login/user-login/user-login.component';
-import { HomePageComponent } from './core/home/home-page/home-page.component';
 import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
 import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
 import { RequestRejectComponent } from './feature/request/request-reject/request-reject.component';
 import { RequestReviewsComponent } from './feature/request/request-reviews/request-reviews.component';
-import { LineForProdComponent } from './feature/lineitem/line-for-prod/line-for-prod.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    MenuComponent,
+    HomePageComponent,
     UserCreateComponent,
     UserEditComponent,
-    UserListComponent,
-    MenuComponent,
     UserDetailComponent,
+    UserListComponent,
+    VendorListComponent,
     VendorCreateComponent,
     VendorEditComponent,
     VendorDetailComponent,
@@ -50,18 +53,17 @@ import { LineForProdComponent } from './feature/lineitem/line-for-prod/line-for-
     ProductEditComponent,
     ProductDetailComponent,
     ProductCreateComponent,
-    VendorListComponent,
     ProductListComponent,
+    LinesComponent,
     LineitemCreateComponent,
     LineitemEditComponent,
     LineitemDetailComponent,
     UserLoginComponent,
-    HomePageComponent,
     RequestReviewComponent,
     RequestApproveComponent,
     RequestRejectComponent,
-    RequestReviewsComponent,
-    LineForProdComponent
+    RequestReviewsComponent
+
   ],
   imports: [
     BrowserModule,

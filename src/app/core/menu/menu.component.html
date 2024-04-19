@@ -2,10 +2,17 @@
 <div class="fixed-menu">
   <link rel="stylesheet" href="menu.component.css">
     <!-- Menu items display -->
+    
     <ul class="no-bullets">
+      <li>
+        <a routerLink="/home">
+          <img  width="30" height="30" src="assets/prslogo.png" alt="">
+        </a> 
+      </li>
+     
       <li *ngFor="let item of menuItems"title="{{item.tooltip}}">
         <a routerLink="{{item.href}}">{{item.display}}</a>
-
+      
       </li>
      
     </ul>

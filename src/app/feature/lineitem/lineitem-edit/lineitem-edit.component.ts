@@ -35,7 +35,6 @@ export class LineitemEditComponent implements OnInit {
         this.lineitemSvc.getLineItemById(this.lineitemId).subscribe({
           next: (parms) => {
             this.lineitem = parms;
-            console.log("li = " +this.lineitem.display());
             if (this.lineitem.request) { // assuming requestId is a field in LineItem
               this.requestSvc.getRequestById(this.lineitem.request.id).subscribe({
                 next: (request) => {
@@ -80,12 +79,6 @@ export class LineitemEditComponent implements OnInit {
       complete: () => {},
     });
   }
-  compRequest(a: Request, b: Request): boolean {
-    return a && b && a.id === b.id;
-  }
-
-  compProduct(a: Product, b: Product): boolean {
-    return a && b && a.id === b.id;
-  }
+ 
 }
 

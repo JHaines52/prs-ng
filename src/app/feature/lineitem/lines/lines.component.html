@@ -1,0 +1,40 @@
+
+<app-menu></app-menu>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Request Lines Items</title>
+    <link rel="stylesheet" href="lines.component.css">
+</head>
+<body>
+  <div class="purchase-request" *ngIf="loggedInUser && requests.length > 0">
+    <section class="heading">
+      <span class="component-title">{{ title }}</span>
+      <a routerLink="/lineitem/create">
+        <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
+  </a>
+    </section>
+    <table *ngIf="requests" class="table table-sm table-striped">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let request of requests">
+          <td>{{ loggedInUser.firstname }} {{ loggedInUser.lastname }}</td>
+          <td>{{ request.description }}</td>
+          <td>{{ request.status }}</td>
+          <td>{{ request.total }}</td>
+          <td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -18,10 +18,6 @@ export class LineitemService {
   getAllLineItems(): Observable<LineItem[]> {
     return this.http.get(URL+"/") as Observable<LineItem[]>;
   }
-  getLinesForProducts(requestId: number): Observable<LineItem[]>{
-    return this.http.get(URL+"/"+requestId) as Observable<LineItem[]>;
-
-  }
 
   getLinesForRequests(requestId: number): Observable<LineItem[]>{
     return this.http.get(URL+"/"+requestId) as Observable<LineItem[]>;

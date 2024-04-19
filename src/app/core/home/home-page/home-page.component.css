@@ -1,58 +1,47 @@
 /* Home Page Component Styles */
 
+html{
+    background: rgba(6, 1, 33, 0.75);
+    height: 100%;
 
-.home-page {
-  padding: 20px;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
 }
-div{
+
+.form-container body {
+    background: image-set("assets/home.jpg" ) !important;
+    object-fit: cover;
     max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-image: url(/src/assets/images/home.png);
-
-}
-.home-header h1 {
-    color: white;
-    padding: 20px;
+    height: auto;
     text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    color: azure;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), /* Outer shadow for depth */
+              inset 0px 1px 2px rgba(255, 255, 255, 0.8); /* Inner light for inset effect */
+    border-radius: 10px; 
+    
+}
+h1{
+    contain: content;
+    font-size: 24pt;
+    text-shadow: 2px 2px 5px rgb(13, 5, 65);
+}
+h2{
+    font-size: 12pt;
+}
+.home-main{
+    font-size: 11pt;
 }
 
 .no-bullets {
     list-style-type: none;
+    }
+  
+  .home-footer {
+     
+      text-align: center;
+      font-size: 8pt;
+      color: azure;
+      padding: 10px;
+      bottom: 0;
+      width: 100%;
   }
-
-.home-header nav a {
-    color: white;
-    text-align: center;
-    font-size: 18px;
-    text-shadow: #0f0730;
-    text-decoration: none;
-}
-
-.home-header nav a:hover {
-    text-decoration:cadetblue;
-}
-
-.home-main {
-    padding: 20px;
-    text-align: center;
-    color: cyan;
-}
-
-.home-main h2 {
-    color: #f8f7f7;
-}
-
-.features{
-    color: aliceblue;
-}
-
-.home-footer {
-    background-color: #f8f9fa;
-    text-align: center;
-    padding: 10px;
-    bottom: 0;
-    width: 100%;
-}

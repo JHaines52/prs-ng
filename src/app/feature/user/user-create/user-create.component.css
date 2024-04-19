@@ -20,6 +20,9 @@ body {
     border-radius: 10px;
     
 }
+input[type="checkbox"]
+
+
 
 .table table-sm {
     display: flex;
@@ -33,7 +36,8 @@ label {
 
 input[type="text"],
 input[type="number"],
-input[type="checkbox"],
+
+input[type="password"]
 textarea {
     padding: 10px;
     margin-bottom: 20px;

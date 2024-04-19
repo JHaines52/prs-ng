@@ -2,16 +2,17 @@
   <div class="form-container">
     <span class="component-title">{{ title }}</span>
     <p *ngIf="!lineitem">Loading...</p>
+ 
     <div *ngIf="lineitem">
       <main class="single">
         <table class="table table-sm">
-            <tr *ngModel="lineitem.request">
+            <tr *ngIf="lineitem.request">
                 <td>Request:</td>
                 <td>
                    {{lineitem.request.description}}
                 </td>
               </tr>
-              <tr *ngModel="lineitem.product">
+              <tr *ngIf="lineitem.product">
                 <td>Product:</td>
                 <td>
                   {{lineitem.product.name}}

@@ -30,7 +30,7 @@ label {
 input[type="text"],
 input[type="number"],
 input[type="checkbox"],
-textarea {
+textarea .rounded{
     padding: 10px;
     margin-bottom: 20px;
     border: none;
