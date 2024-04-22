@@ -8,7 +8,7 @@ export class User{
     email: string;
     reviewer: boolean;
     admin: boolean;
-
+    isAdmin?: boolean;
 
 constructor(
     id: number = 0,

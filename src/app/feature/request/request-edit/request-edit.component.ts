@@ -66,7 +66,7 @@ export class RequestEditComponent implements OnInit {
       complete: () => {},
     });
   }
-  compMovie(a: User, b: User): boolean {
+  compUser(a: User, b: User): boolean {
     return a && b && a.id === b.id;
   }
 

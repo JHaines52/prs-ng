@@ -15,9 +15,9 @@
         <table class="table table-sm">
             <tr>
                 <td>User:</td>
-                <td>
-                    <input class="rounded" type="text" value="userFirstname, userLastname" disabled />
-                </td>
+                  <td>
+                    <input [(ngModel)]="userFullname" class="rounded" type="text" disabled /> 
+                  </td>
               </tr>
               <tr>
                 <td>Description:</td>
@@ -34,7 +34,7 @@
               <tr>
                 <td>DateNeeded:</td>
                 <td>
-                    <input [(ngModel)]="request.dateNeeded" class="rounded" type="datetime"  />
+                    <input [(ngModel)]="request.dateNeeded" class="rounded" type="date"  />
                 </td>
               </tr>
               <tr>

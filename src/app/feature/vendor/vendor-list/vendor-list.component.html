@@ -9,7 +9,7 @@
 <div class="purchase-request">
     <section class="heading">
       <span class="component-title">{{ title }}</span>
-      <a routerLink="/vendor/create">
+      <a [ngClass]="{'hidden': !showAddIcon}" routerLink="/vendor/create">
         <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
   </a>
     </section>

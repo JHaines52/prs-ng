@@ -22,6 +22,10 @@ import { LineitemCreateComponent } from './feature/lineitem/lineitem-create/line
 import { LineitemEditComponent } from './feature/lineitem/lineitem-edit/lineitem-edit.component';
 import { LineitemDetailComponent } from './feature/lineitem/lineitem-detail/lineitem-detail.component';
 import { UserLoginComponent } from './feature/user-login/user-login/user-login.component';
+import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
+import { RequestReviewsComponent } from './feature/request/request-reviews/request-reviews.component';
+import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
+import { RequestRejectComponent } from './feature/request/request-reject/request-reject.component';
 
 
 const routes: Routes = [
@@ -40,12 +44,16 @@ const routes: Routes = [
   { path: 'request/create', component: RequestCreateComponent },
   { path: 'request/edit/:id', component: RequestEditComponent },
   { path: 'request/detail/:id', component: RequestDetailComponent },
-  { path: '/lines/:id', component: LinesComponent },
+  { path: 'request/reviews/:id', component: RequestReviewsComponent},
+  { path: 'request/review/:id', component: RequestReviewComponent},
+  { path: 'request/approve/:id', component: RequestApproveComponent},
+  { path: 'request/reject/:id', component: RequestRejectComponent},
+  { path: 'request/lines/:id', component: LinesComponent },
   { path: 'product/list', component: ProductListComponent },
   { path: 'product/create', component: ProductCreateComponent },
   { path: 'product/edit/:id', component: ProductEditComponent },
   { path: 'product/detail/:id', component: ProductDetailComponent },
-  { path: 'lineitem/create', component: LineitemCreateComponent },
+  { path: 'lineitem/create/:id', component: LineitemCreateComponent },
   { path: 'lineitem/edit/:id', component: LineitemEditComponent },
   { path: 'lineitem/detail/:id', component: LineitemDetailComponent },
   { path: '**', component: UserListComponent },

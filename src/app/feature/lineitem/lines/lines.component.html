@@ -1,40 +1,77 @@
-
 <app-menu></app-menu>
 <html>
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchase Request Lines Items</title>
-    <link rel="stylesheet" href="lines.component.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lines Items</title>
+  <link rel="stylesheet" href="lines.component.css">
 </head>
+
 <body>
-  <div class="purchase-request" *ngIf="loggedInUser && requests.length > 0">
-    <section class="heading">
-      <span class="component-title">{{ title }}</span>
-      <a routerLink="/lineitem/create">
-        <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
-  </a>
-    </section>
-    <table *ngIf="requests" class="table table-sm table-striped">
+  <div class="purchase-request">
+    <span class="component-title">{{titlep }}</span>
+    <table *ngIf="request" class="table table-sm table-striped">
       <thead>
         <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Phone</th>
-          <th>Email</th>
-          <th>Action</th>
+          <th>Username</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Total</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let request of requests">
-          <td>{{ loggedInUser.firstname }} {{ loggedInUser.lastname }}</td>
+        <tr *ngIf="request">
+          <td>{{ request.user.firstname }} {{ request.user.lastname }}</td>
           <td>{{ request.description }}</td>
           <td>{{ request.status }}</td>
           <td>{{ request.total }}</td>
-          <td>
-          </td>
         </tr>
       </tbody>
     </table>
   </div>
+  <div class="line-items" *ngIf="lineItems">
+    <section class="heading">
+      <span class="component-title">{{ title }}</span>
+      <a routerLink="/lineitem/create/{{requestId}}">
+        <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
+      </a>
+    </section>
+    <table *ngIf="lineItems" class="table table-sm table-striped">
+      <thead>
+        <tr>
+          <th>Vendor</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Line Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let lineitem of lineItems">
+          <td>{{lineitem.product.vendor.name}}</td>
+          <td>{{lineitem.product.name}} </td>
+          <td>{{lineitem.quantity}} </td>
+          <td>{{lineitem.product.price}} </td>
+          <td>{{lineitem.quantity * lineitem.product.price}} </td>
+          <td>
+            <a routerLink="/lineitem/edit/{{ lineitem.id }}">
+              <img width="20" height="20" src="assets/pencil-icon.png" title="Edit Line Items" />
+            </a>
+            <a (click)="delete(lineitem.id)">
+              <img width="20" height="20" src="assets/delete.png" title="Line Item Delete" />
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <span>
+      <button (click)="submit()" class="submit">
+        Submit
+      </button></span>
+    <p *ngIf="lineItems.length === 0">No line items yet. Please create a new one</p>
+    <p *ngIf="message">{{ message }}</p>
+  </div>
 </body>
+
 </html>

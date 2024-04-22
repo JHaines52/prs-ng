@@ -17,8 +17,10 @@ export class LineitemEditComponent implements OnInit {
   lineitem: LineItem = new LineItem();
   lineitemId: number = 0;
   requests: Request = new Request();
-  products: Product = new Product();
+  products: Product[] = [];
   message?: string = undefined;
+  selectedProduct?: Product;
+  
 
   constructor(
     private lineitemSvc: LineitemService,
@@ -26,7 +28,7 @@ export class LineitemEditComponent implements OnInit {
     private productSvc: ProductService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe({
@@ -44,41 +46,44 @@ export class LineitemEditComponent implements OnInit {
               });
             }
             if (this.lineitem.product) { // assuming productId is a field in LineItem
-              this.productSvc.getProductById(this.lineitem.product.id).subscribe({
+              this.productSvc.getAllProducts().subscribe({
                 next: (product) => {
-                  this.products = product;
+                  this.products = product; 
                 },
-                error: (err) => console.log('Error getting product:', err)
+                error: (err) => console.log('Error getting products:', err)
               });
             }
           },
-          
+
 
         });
       },
       error: (err) => {
         console.log('Error editing Lineitem: ', err);
       },
-      complete: () => {},
+      complete: () => { },
     });
 
   }
- 
+
 
   save(): void {
     // NOTE: Check for existence of lineitem title before save?
     this.lineitemSvc.updateLineItem(this.lineitem).subscribe({
       next: (resp) => {
         this.lineitem = resp;
-        this.router.navigateByUrl('/request/list');
+        this.router.navigateByUrl('request/lines/lineitemId"');
       },
       error: (err) => {
         console.log('Error updating lineitem: ', err);
         this.message = 'Error updating Lineitem.';
       },
-      complete: () => {},
+      complete: () => { },
     });
   }
- 
+  compareProd(a: Product, b: Product): boolean {
+    return a && b ? a.id === b.id : a === b;
+  }
+
 }
 

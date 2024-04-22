@@ -15,6 +15,10 @@ body {
                 inset 0px 1px 2px rgba(255, 255, 255, 0.8); /* Inner light for inset effect */
       border-radius: 10px;
 }
+table {
+    width: 100%;
+    border-collapse: collapse; /* Removes space between borders */
+}
 
 .table table-sm {
     display: flex;
@@ -23,29 +27,32 @@ body {
 .component-title{
     color:#f1f1f4;
     margin-bottom: 10px;
-    font-size: 18pt;
+    font-size: 14pt;
 }
 
 label {
     margin-bottom: 5px;
-    font-size: 1.2em;
+    font-size: 12pt;
 }
 
 input[type="text"],
 input[type="number"],
-input[type="title"],
-input[type="button"],
-textarea {
+input[type="date"],
+input[type="datetime"]
+ {  color-scheme: dark;
     padding: 10px;
     margin-bottom: 20px;
     border: none;
     border-radius: 5px;
-    background-color: #112136; /* Darker teal for input backgrounds */
+    background-color: #112736; 
     color: #f0f8ff; /* Light text color */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4), /* More pronounced shadow on focus */
+    inset 0px 1px 2px rgba(255, 255, 255, 0.8); /* Inner light for inset effect */
 }
 
 
-button {
+
+button, a{
     padding: 10px 20px;
     background-color: #1d4c63; /* Teal color for the button */
     color: #e4f9f5; /* Light teal text */
@@ -57,4 +64,13 @@ button {
 
 button:hover {
     background-color: #4377a1; /* Lighter teal on hover */
+}
+a:link{
+    color:aliceblue;
+    text-decoration: none;
+
+}
+
+a:visited{
+    color: #112136;
 }

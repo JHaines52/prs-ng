@@ -9,50 +9,47 @@
 <div class="purchase-request">
     <section class="heading">
       <span class="component-title">{{ title }}</span>
-      <a routerLink="/product/create">
+      <a [ngClass]="{'hidden': !showAddIcon}" routerLink="/product/create">
         <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
-  </a>
+      </a>
     </section>
-    <table *ngIf="products" class="table table-sm table-striped">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Vendor</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Photo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let product of products">
-          <td>{{ product.id }}</td>
-          <td>{{ product.vendor.name }} </td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.price}}</td>
-          <td>{{product.photoPath}}</td>
-          <td>
-            <a routerLink="/product/detail/{{ product.id }}">
-              <img
-                width="20"
-                height="20"
-                src="assets/details.png"
-                title="Product Details"
-              />
-            </a>
-            <a routerLink="/product/edit/{{ product.id }}">
-              <img
-                width="20"
-                height="20"
-                src="assets/pencil-icon.png"
-                title="Edit Product"
-              />
-            </a>
-         </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <div *ngIf="products.length > 0" class="product-carousel">
+      <button (click)="navigate('prev')">&#10094;</button> 
+        <div class="vertical-table sm table-striped">
+          <div class="vertical-table-row">
+            <div class="vertical-table-header">ID</div>
+            <div class="vertical-table-cell">{{ products[currentIndex].id }}</div>
+          </div>
+          <div class="vertical-table-row">
+            <div class="vertical-table-header">Vendor</div>
+            <div class="vertical-table-cell">{{ products[currentIndex].vendor.name }}</div>
+          </div>
+          <div class="vertical-table-row">
+            <div class="vertical-table-header">Name</div>
+            <div class="vertical-table-cell">{{ products[currentIndex].name }}</div>
+          </div>
+          <div class="vertical-table-row">
+            <div class="vertical-table-header">Photo</div>
+            <div class="vertical-table-cell"><img [src]="products[currentIndex].photoPath" alt="product-image"/></div>
+          </div>
+          <div class="vertical-table-row">
+            <div class="vertical-table-header">Price</div>
+            <div class="vertical-table-cell">{{ products[currentIndex].price }}</div>
+          </div>
+          <div class="vertical-table-row">
+            <div class="vertical-table-header">Action</div>
+            <div class="vertical-table-cell">
+              <a routerLink="/product/detail/{{ products[currentIndex].id }}">
+                <img width="20" height="20" src="assets/details.png" title="Product Details"/>
+              </a>
+              <a routerLink="/product/edit/{{ products[currentIndex].id }}">
+                <img width="20" height="20" src="assets/pencil-icon.png" title="Edit Product"/>
+              </a>  
+            </div>
+          </div>
+        </div>
+      <button (click)="navigate('next')">&#10095;</button>
+    </div>
+    <p *ngIf="products.length === 0">No products available.</p>
+</div>
 </body>
-
-
-

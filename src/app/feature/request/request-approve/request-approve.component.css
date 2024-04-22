@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    color: aliceblue;
+    margin: 0;
+    padding: 0;
+    
+}
+.component-title{
+    color:#f1f1f4;
+    margin-bottom: 10px;
+    font-size: 14pt;
+}
+
+.purchase-request {
+    width: 80%;
+    margin: 50px auto;
+    background: rgba(28, 4, 54, 0.75); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(254, 253, 253, 0.723);
+}
+
+.line-items{
+    width: 80%;
+    margin: 50px auto;
+    background: rgba(61, 60, 61, 0.75); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(254, 253, 253, 0.723);
+}
+table {
+    width: 100%;
+    border-collapse: collapse; /* Removes space between borders */
+}
+
+table, th, td {
+    border: 1px solid #fafefe;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+button {
+    padding: 10px 20px;
+    background-color: #331d63; /* Teal color for the button */
+    color: #e4f9f5; /* Light teal text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3c3c3c; /* Lighter teal on hover */
+}
+button:disabled {
+    background-color: #f6f5f8;
+ }
+
+th {
+    background-color: #160231;
+    color: #f0f5f6;
+}
+
+tr:nth-child(even) {
+    background-color: #2e1b37;
+}
+
+

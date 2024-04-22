@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/model/user';
+import { SystemService } from 'src/app/service/system.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -10,21 +11,38 @@ import { UserService } from 'src/app/service/user.service';
 export class UserListComponent implements OnInit {
   title: string = 'User-List';
   users?: User[] = undefined;
+  loggedInUser: User = new User();
+  showAddIcon: boolean = false;
 
-  constructor(private userSvc: UserService) {}
-  
+  constructor(private userSvc: UserService,
+    private systemSvc: SystemService
+  ) { }
+
   ngOnInit(): void {
+    
+    this.showAddIcon = this.systemSvc.isAdmin();
     this.userSvc.getAllUsers().subscribe({
-      next:(resp) => {
+      next: (resp) => {
         this.users = resp;
 
-        
+
       },
       error: (err) => {
         console.log(err);
       },
-      complete: () => {}
+      complete: () => { }
     });
 
+    
+
+  }
+  canEdit(): boolean {
+    return this.systemSvc.isReviewer();
+  }
+  updateRole(): boolean {
+    return this.systemSvc.isAdmin();
+  }
+
+
 }
-}
+

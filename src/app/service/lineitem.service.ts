@@ -19,8 +19,8 @@ export class LineitemService {
     return this.http.get(URL+"/") as Observable<LineItem[]>;
   }
 
-  getLinesForRequests(requestId: number): Observable<LineItem[]>{
-    return this.http.get(URL+"/"+requestId) as Observable<LineItem[]>;
+  getLinesForRequest(requestId: number): Observable<LineItem[]>{
+    return this.http.get(URL+"/lines/"+requestId) as Observable<LineItem[]>;
 
   }
 
@@ -40,7 +40,7 @@ export class LineitemService {
 
   deleteLineItem(id: number): Observable<boolean> {
 
-
     return this.http.delete(URL+"/"+id) as Observable<boolean>;
   }
+
 }

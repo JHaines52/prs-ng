@@ -1,1 +1,69 @@
-<p>request-approve works!</p>
+<app-menu></app-menu>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lines Items</title>
+    <link rel="stylesheet" href="request-approve.component.css">
+</head>
+
+<body>
+    <div class="purchase-request">
+        <span class="component-title">{{titlep}}</span>
+        <table *ngIf="request" class="table table-sm table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="request">
+                    <td>{{ request.id }}</td>
+                    <td>{{ request.description }}</td>
+                    <td>{{ request.status }}</td>
+                    <td>{{ request.total }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="line-items" *ngIf="lineItem">
+        <section class="heading">
+            <span class="component-title">{{ title }}</span>
+        </section>
+        <table class="table table-sm table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Line Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{lineItem.id}}</td>
+                    <td>{{lineItem.product.name}} </td>
+                    <td>{{lineItem.quantity}} </td>
+                    <td>{{lineItem.product.price}} </td>
+                    <td>{{lineItem.request.total}} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="approve-reject" *ngIf="request">
+        <span>
+            <button (click)="approve()" class="approve">Approve</button>
+        </span>
+        <p *ngIf="message">{{ message }}</p>
+        <span>
+            <input [(ngModel)]="request.reasonForRejection" class="rounded" type="text" />
+            <button (click)="reject()" class="reject"  [disabled]="!request.reasonForRejection">Reject</button>
+        </span>
+        <p *ngIf="message">{{ message }}</p>
+    </div>
+</body>
+</html>

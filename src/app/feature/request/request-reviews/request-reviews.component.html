@@ -1,1 +1,45 @@
-<p>request-reviews works!</p>
+<app-menu></app-menu>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request List</title>
+    <link rel="stylesheet" href="request-reviews.component.css">
+</head>
+<body>
+<div class="purchase-request">
+    <section class="heading">
+      <span class="component-title">{{ title }}</span>
+    </section>
+    <table *ngIf="requests" class="table table-sm table-striped">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Total</th>
+          <th>Submitted Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let request of requests">
+          <td>{{ request.user.firstname }} {{ request.user.lastname }}</td>
+          <td>{{ request.description }}</td>
+          <td>{{request.status}}</td>
+          <td>{{request.total}} </td>
+          <td>{{ request.submittedDate}}</td>
+          <td>
+            <span>
+            <a routerLink="/request/approve/{{request.id}}">
+              <img width="20" height="20" src="assets/review.png" title="Request Approve"/>
+            </a>
+        </span>
+         </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+
+

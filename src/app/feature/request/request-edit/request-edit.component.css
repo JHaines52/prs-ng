@@ -16,7 +16,10 @@ body {
     border-radius: 10px;
     
 }
-
+table {
+    width: 100%;
+    border-collapse: collapse; /* Removes space between borders */
+}
 .table table-sm {
     display: flex;
     flex-direction: column;
@@ -24,18 +27,19 @@ body {
 .component-title{
     color:#f1f1f4;
     margin-bottom: 10px;
-    font-size: 18pt;
+    font-size: 14pt;
 }
 label {
     margin-bottom: 5px;
-    font-size: 1.2em;
+    font-size: 12pt;
 }
 
 input[type="text"],
 input[type="number"],
-input[type="checkbox"],
-textarea {
+input[type="date"],
+input[type="datetime"] {
     padding: 10px;
+    color-scheme: dark;
     margin-bottom: 20px;
     border: none;
     border-radius: 5px;
@@ -44,12 +48,15 @@ textarea {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4), /* More pronounced shadow on focus */
     inset 0px 1px 2px rgba(255, 255, 255, 0.8); /* Inner light for inset effect */
 }
-#status {
-    width: 200px;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+#drop {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1c1136; 
+    color: #f0f8ff; /* Light text color */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4), /* More pronounced shadow on focus */
+    inset 0px 1px 2px rgba(255, 255, 255, 0.8); /* Inner light for inset effect */
 }
 
 

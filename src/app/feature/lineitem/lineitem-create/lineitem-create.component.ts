@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LineItem } from 'src/app/model/lineItem';
 import { Product } from 'src/app/model/product';
+import { Request } from 'src/app/model/request';
 import { LineitemService } from 'src/app/service/lineitem.service';
 import { ProductService } from 'src/app/service/product.service';
+import { RequestService } from 'src/app/service/request.service';
+import { VendorService } from 'src/app/service/vendor.service';
+import { Vendor } from 'src/app/model/vendor';
+import { SystemService } from 'src/app/service/system.service';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-lineitem-create',
@@ -11,44 +17,101 @@ import { ProductService } from 'src/app/service/product.service';
   styleUrls: ['./lineitem-create.component.css']
 })
 export class LineitemCreateComponent implements OnInit {
-
+  request: Request = new Request();
+  loggedInUser: User = new User();
+  id: number = 0;
   title: string = 'Lineitem-Create';
- lineitem: LineItem = new LineItem();
+  lineitem: LineItem = new LineItem();
   products: Product[] = [];
+  vendors: Vendor[] = [];
   message?: string = undefined;
 
   constructor(
     private lineitemSvc: LineitemService,
     private productSvc: ProductService,
-    private router: Router
-  ) {}
+    private vendorSvc: VendorService,
+    private requestSvc: RequestService,
+    private systemSvc: SystemService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.productSvc.getAllProducts().subscribe({
-      next: (resp) => {
-        this.products = resp;
+    this.route.params.subscribe({
+      next: (parms) => {
+       this.id = parms['id'];
+        if (this.id) {
+          this.RequestDetails();
+          this.loadProducts();
+          this.loadVendors();
+        }
       },
       error: (err) => {
-        console.log('Product Create - error getting products.');
+        console.log('Error with route parameters: ', err.message)
       },
-      complete: () => {},
     });
-   
+    
   }
+
+  RequestDetails(): void {
+        this.requestSvc.getRequestById(this.id).subscribe({
+          next: (resp) => {
+            this.request = resp;
+            this.lineitem.request = this.request;
+          },
+          error: (err) => {
+            console.log('Error editing request: ', err.message);
+          },
+          complete: () => { },
+        });
+      }
+      
+    
+
+  loadProducts(): void {
+    this.productSvc.getAllProducts().subscribe({
+      next: (prod) => {
+        this.products = prod;
+      },
+      error: (err) => {
+        console.log('Error getting products.', err.message);
+      },
+      complete: () => { },
+    });
+  }
+  loadVendors(): void {
+    this.vendorSvc.getAllVendors().subscribe({
+      next: (vend) => {
+        this.vendors = vend;
+
+      },
+      error: (err) => {
+        console.log('Error getting vendors.', err.message);
+      },
+      complete: () => { },
+    });
+
+  }
+
+
   save(): void {
-    // NOTE: Check for existence of product title before save?
     this.lineitemSvc.createLineItem(this.lineitem).subscribe({
       next: (resp) => {
         this.lineitem = resp;
-        this.router.navigateByUrl('/list-for-product/list');
+        this.router.navigateByUrl('/request/lines/'+this.id);
       },
       error: (err) => {
-        console.log('Error creating product: ', err);
-        this.message = 'Error creating Product.';
+        console.log('Error creating lineitem: ', err);
+        this.message = 'Error creating lineitem.';
       },
-      complete: () => {},
+      complete: () => { },
     });
+  }
+
+  compareWithProd(p: Product, v: Vendor): boolean {
+    return p && v && p.id === v.id;
   }
 
 
 }
+

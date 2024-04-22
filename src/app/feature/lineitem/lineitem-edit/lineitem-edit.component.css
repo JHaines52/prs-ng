@@ -5,6 +5,12 @@ body {
     padding: 0;
 
 }
+.component-title{
+    color:#f1f1f4;
+    margin-bottom: 10px;
+    font-size: 14pt;
+}
+
 
 .form-container {
     max-width: 600px;
@@ -26,7 +32,7 @@ body {
 
 label {
     margin-bottom: 5px;
-    font-size: 1.2em;
+    font-size: 12pt;
 }
 
 input[type="text"],

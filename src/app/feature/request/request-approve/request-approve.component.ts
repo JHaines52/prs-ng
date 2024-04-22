@@ -13,60 +13,101 @@ import { SystemService } from 'src/app/service/system.service';
   styleUrls: ['./request-approve.component.css']
 })
 export class RequestApproveComponent implements OnInit {
-  title: string = 'Request-Approve';
+  titlep: string = 'Purchase Request-Approve/Reject';
+  title: string = 'Line Items';
   loggedInUser: User = new User();
-  request: Request = new Request ();
+  request: Request = new Request();
   requestId: number = 0;
-  lineItems: LineItem[] = [];
+  lineItem: LineItem = new LineItem();
   userIsAdmin: boolean = false;
   userIsReviewer: boolean = false;
   message?: string = undefined;
 
-  constructor(private requestSvc: RequestService, 
-              private lineItemSvc: LineitemService, 
-              private systemSvc: SystemService, 
-              private router: Router,
-              private route: ActivatedRoute
+  constructor(private requestSvc: RequestService,
+    private lineitemSvc: LineitemService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe({
-      next: (parms) => {
-        this.requestId = parms['id'];
-        this.requestSvc.getRequestById(this.requestId).subscribe({
-          next: (resp) =>{
-            this.request = resp;
-            this.lineItemSvc.getLinesForRequests(this.requestId).subscribe({
-            next: (resp) => {
-              this.lineItems = resp;
-          }
+      next: (params) => {
+        let requestId = params['id'];
+        this.requestSvc.getRequestById(requestId).subscribe({
+          next: (params) => {
+            this.request = params;
+            this.lineitemSvc.getLineItemById(requestId).subscribe({
+              next: (params) => {
+                this.lineItem = params;
+
+                console.log("request for approval:" + this.request);
+
+              },
+              error: (err) => {
+                console.log('Error getting Lineitem:', err.message);
+              },
+              complete: () => { },
+            });
+
+          },
+          error: (err) => {
+            console.log('Error getting Request: ', err);
+          },
+          complete: () => { },
         });
       },
-      error: (err) =>{
-        console.log('error getting li for request: ' + err.message);
-      },
-      complete: () => {}
-    });
-  },
-  error: (err) =>{
-    console.log('error getting request: ' + err.message);
-  },
-  complete: () => {}
-});
-}    
-save(): void {
-  // NOTE: Check for existence of credit title before save?
-  this.requestSvc.updateRequest(this.request).subscribe({
-    next: (resp) => {
-      this.request = resp;
-      this.router.navigateByUrl('/request/list');
-    },
-    error: (err) => {
-      console.log('Error updating credit: ', err);
-      this.message = 'Error updating Credit.';
-    },
-    complete: () => {},
-  });
 
-}
+
+    });
+  }
+
+
+  approve(): void {
+    this.route.params.subscribe({
+      next: (params) => {
+        let Id = params['id'];
+        this.requestSvc.approveRequest(Id).subscribe({
+          next: (resp) => {
+            this.requestId = resp['id'];
+            if (this.requestId) {
+              this.router.navigateByUrl('/request/list');
+            }
+            else {
+              console.log('request not found');
+            }
+          },
+          error: (err) => {
+            console.log('error getting request: ' + err.message);
+          },
+          complete: () => { }
+        });
+      }
+    });
+
+  }
+  reject(): void {
+    this.route.params.subscribe({
+      next: (params) => {
+        let Id = params['id'];
+        this.requestSvc.rejectRequest(Id).subscribe({
+          next: (resp) => {
+            this.requestId = resp['id'];
+            if (this.requestId) {
+              this.router.navigateByUrl('/request/list');
+            }
+            else {
+              console.log('request not found');
+            }
+
+          },
+          error: (err) => {
+            console.log('Error updating credit: ', err);
+            this.message = 'Error updating Credit.';
+          },
+          complete: () => { },
+        });
+      },
+    });
+
+  }
 }

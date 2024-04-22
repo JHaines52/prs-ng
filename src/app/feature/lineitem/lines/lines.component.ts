@@ -5,7 +5,7 @@ import { Request } from 'src/app/model/request';
 import { LineitemService } from 'src/app/service/lineitem.service';
 import { RequestService } from 'src/app/service/request.service';
 import { SystemService } from 'src/app/service/system.service';
-import { User } from 'src/app/model/user';
+
 
 @Component({
   selector: 'app-lines',
@@ -13,40 +13,81 @@ import { User } from 'src/app/model/user';
   styleUrls: ['./lines.component.css']
 })
 export class LinesComponent implements OnInit {
-  title: string = 'Purchase Request Line items';
+  titlep: string = 'Purchase Request'
+  title: string = 'Line Items';
+  message?: string = undefined;
   lineItems: LineItem[] = [];
   username: string = '';
   requestId: number = 0;
-  requests: Request[] = [];
-  loggedInUser: User = new User();
+  request: Request = new Request();
+
 
   constructor(private lineitemSvc: LineitemService,
     private systemSvc: SystemService,
+    private requestSvc: RequestService,
     private router: Router,
-    private route: ActivatedRoute
-
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-    this.loggedInUser = this.loggedInUser;
-    this.username = this.loggedInUser.firstname && this.loggedInUser.lastname;
-
+    this.systemSvc.checkLogin();
     this.route.params.subscribe({
       next: (params) => {
         this.requestId = params['id'];
-        this.lineitemSvc.getLinesForRequests(this.requestId).subscribe({
-          next: (parms) => {
-            this.lineItems = parms;
+        this.requestSvc.getRequestById(this.requestId).subscribe({
+          next: (params) => {
+            this.request = params;
           },
-             
           error: (err) => {
-            console.log('Could not find request:', err)}
+            console.log('Error getting Request: ', err);
+          },
+          complete: () => { },
+        });
+
+        this.lineitemSvc.getLinesForRequest(this.requestId).subscribe({
+          next: (params) => {
+            this.lineItems = params;
+            console.log("lines component request:" + this.request);
+          },
+          error: (err) => {
+            console.log('Error getting lines:', err.message);
+          },
+          complete: () => { },
         });
       },
-      complete: () => { }
     });
-
-
   }
 
+  delete(id: number) {
+    this.lineitemSvc.deleteLineItem(id).subscribe({
+      next: (resp) => {
+        if (resp == false) {
+          console.log('LinesComponent - error deleting Lines.');
+          this.message = 'LinesComponent - error deleting Lines.';
+        } else {
+          this.router.navigateByUrl('request/list');
+        }
+      },
+      error: (err) => {
+        console.log('Error deleting request: ' + err.message);
+      },
+      complete: () => { },
+    });
+  }
+
+
+  submit() {
+    this.requestSvc.submitRequestForReview(this.requestId).subscribe({
+      next: (request) => {
+        this.requestId = request['id']
+        this.router.navigateByUrl('/request/list')
+      },
+      error: (err) => {
+        console.log('Error submitting request: ' + err.message);
+      },
+      complete: () => {
+        console.log('Submission process complete.');
+      }
+    });
+  }
 }

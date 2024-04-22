@@ -16,13 +16,45 @@ body {
     box-shadow: 0 4px 8px rgba(254, 253, 253, 0.723);
 }
 
+/* Custom checkbox style */
+input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 20px;
+}
+
+/* Custom checkbox appearance */
+input[type="checkbox"] + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #fff;
+    background: #27343f;
+    border-radius: 3px;
+}
+
+/* Checked state for custom checkbox */
+input[type="checkbox"]:checked + label:before {
+    background-color: #0b3b3e; /* Green background for checked state */
+}
+
+
 table {
     width: 100%;
     border-collapse: collapse; /* Removes space between borders */
 }
+.hidden {
+    display: none;
+}
 
 table, th, td {
     border: 1px solid #fafefe;
+
 }
 
 th, td {
@@ -38,7 +70,7 @@ th {
 .component-title{
     color:#f1f1f4;
     margin-bottom: 10px;
-    font-size: 18pt;
+    font-size: 14pt;
     text-align: center;
 }
 

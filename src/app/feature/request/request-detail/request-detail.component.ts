@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequestService } from 'src/app/service/request.service';
 import { Request } from 'src/app/model/request';
+import { LineitemService } from 'src/app/service/lineitem.service';
+import { LineItem } from 'src/app/model/lineItem';
 
 
 @Component({
@@ -14,14 +16,18 @@ export class RequestDetailComponent implements OnInit {
   request: Request = new Request();
   requestId: number = 0;
   message?: string = undefined;
+  lineitems?: LineItem[] = undefined;
+  exists: boolean = false;
   
     constructor(
       private requestSvc: RequestService,
       private router: Router,
-      private route: ActivatedRoute
+      private route: ActivatedRoute, 
+      private lineitemSvc: LineitemService
     ) { }
 
     ngOnInit() {
+     
       // get the id from the url
       this.route.params.subscribe({
         next: (parms) => {
@@ -29,6 +35,7 @@ export class RequestDetailComponent implements OnInit {
           this.requestSvc.getRequestById(this.requestId).subscribe({
             next: (parms) => {
               this.request = parms;
+              this.checkForRequestExistence();
             },
           });
         },
@@ -55,4 +62,19 @@ export class RequestDetailComponent implements OnInit {
         complete: () => {},
       });
     }
-}
+    
+    checkForRequestExistence(): void {
+      this.lineitemSvc.getLinesForRequest(this.requestId).subscribe({
+        next: (lineItems) => {
+          this.exists = lineItems && lineItems.length > 0;
+          // Update UI based on `this.exists`
+        },
+        error: (error) => {
+          console.error('Error fetching line items:', error);
+          this.exists = false; // Set false or adjust accordingly
+        }
+      });
+    }
+  }
+
+

@@ -9,7 +9,7 @@
 <div class="purchase-request">
     <section class="heading">
       <span class="component-title">{{ title }}</span>
-      <a routerLink="/request/create">
+      <a [ngClass]="{'hidden': !showAddIcon}" routerLink="/request/create/">
         <img width="20" height="20" src="assets/add-icon.png" title="Add New" />
   </a>
     </section>
@@ -21,6 +21,7 @@
           <th>Justification</th>
           <th>Status</th>
           <th>Total</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -32,30 +33,13 @@
           <td>{{ request.total}}</td>
           <td>
             <a routerLink="/request/detail/{{ request.id }}">
-              <img
-                width="20"
-                height="20"
-                src="assets/details.png"
-                title="Request Details"
-              />
+              <img width="20" height="20" src="assets/details.png" title="Request Details" />
             </a>
-            <span *ngIf="requestStatusReview">
-            <a routerLink="/request/edit/{{ request.id }}">
-              <img
-                width="20"
-                height="20"
-                src="assets/pencil-icon.png"
-                title="Edit Request"
-              />
+            <a *ngIf="request.status === 'NEW'" routerLink="/request/edit/{{ request.id }}">
+              <img width="20" height="20" src="assets/pencil-icon.png" title="Edit Request"/>
             </a>
-          </span>
-            <a routerLink="/lineitem/edit/{{ request.id }}">
-              <img
-                width="20"
-                height="20"
-                src="assets/lines.png"
-                title="Edit Lineitems"
-              />
+            <a routerLink="/request/lines/{{request.id}}">
+              <img width="20"height="20"src="assets/lines.png" title="Request Lines"/>
             </a>
           
          </td>

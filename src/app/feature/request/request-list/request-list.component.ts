@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LineItem } from 'src/app/model/lineItem';
 import { Request } from 'src/app/model/request';
 import { RequestService } from 'src/app/service/request.service';
+import { SystemService } from 'src/app/service/system.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -11,26 +12,30 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class RequestListComponent implements OnInit {
   title: string = 'Request-List';
-  requestStatusReview: boolean = false;
   requests?: Request[] = undefined;
   lineitem: LineItem = new LineItem();
+  showAddIcon: boolean = false;
 
   constructor(private requestSvc: RequestService,
-    private userSvc: UserService
+    private systemSvc: SystemService
   ) { }
 
   ngOnInit(): void {
+    this.systemSvc.checkLogin();
+    this.showAddIcon = this.systemSvc.isAdmin();
+
     this.requestSvc.getAllRequests().subscribe({
-      next:(resp) => {
+
+      next: (resp) => {
         this.requests = resp;
-        
+
       },
-      error: (err) =>{
+      error: (err) => {
         console.log(err);
       },
-      complete: () => {}
+      complete: () => { }
     });
-    
+
   }
 
 }

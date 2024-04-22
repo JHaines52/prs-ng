@@ -8,18 +8,26 @@ body {
 .component-title{
     color:#f1f1f4;
     margin-bottom: 10px;
-    font-size: 18pt;
+    font-size: 14pt;
 }
 
 .purchase-request {
     width: 80%;
     margin: 50px auto;
-    background: rgba(9, 46, 58, 0.75); /* Semi-transparent white background */
+    background: rgba(15, 74, 94, 0.75); /* Semi-transparent white background */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(254, 253, 253, 0.723);
 }
 
+.line-items{
+    width: 80%;
+    margin: 50px auto;
+    background: rgba(6, 32, 41, 0.75); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(254, 253, 253, 0.723);
+}
 table {
     width: 100%;
     border-collapse: collapse; /* Removes space between borders */
@@ -33,6 +41,20 @@ th, td {
     text-align: left;
     padding: 8px;
 }
+button {
+    padding: 10px 20px;
+    background-color: #1d4763; /* Teal color for the button */
+    color: #e4f9f5; /* Light teal text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #437ea1; /* Lighter teal on hover */
+}
+
 
 th {
     background-color: #27343f;

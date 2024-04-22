@@ -16,7 +16,7 @@
             <tr>
                 <td>Vendor:</td>
                 <td>
-                    <select [(ngModel)]="product.vendor" class="rounded">
+                    <select [(ngModel)]="product.vendor" id="drop" class="rounded">
                     <option *ngFor="let v of vendors" [ngValue]="v">{{v.name}}</option>
                     </select>         
                 </td>

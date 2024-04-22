@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="form-container">
-    <span class="component-title">[{{ title }}]</span>
+    <span class="component-title">{{ title }}</span>
     <p *ngIf="!vendor">Loading...</p>
     <div *ngIf="vendor">
       <main class="single">
@@ -70,7 +70,7 @@
         </table>
       </main>
       <span>
-        <button (click)="save()" class="btn btn-sm btn-primary">Edit</button>
+        <button (click)="save()" class="btn btn-sm btn-primary">Save</button>
       </span>
       <p *ngIf="message">{{ message }}</p>
     </div>

@@ -1,11 +1,12 @@
 <app-menu></app-menu>
+
 <head>
-  
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Input Form</title>
-    <link rel="stylesheet" href="user-create.component.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Input Form</title>
+  <link rel="stylesheet" href="user-create.component.css">
 </head>
+
 <body>
   <div class="form-container">
     <span class="component-title">{{ title }}</span>
@@ -14,59 +15,53 @@
       <main class="single">
         <table class="table table-sm">
           <tr>
-            <td>Id:</td>
-            <td>
-              <input [(ngModel)]="user.id" class="rounded" type="number" />
-            </td>
-          </tr>
-          <tr>
             <td>Username</td>
             <td>
-              <input [(ngModel)]="user.username" class="rounded" type="text" />
+              <input [(ngModel)]="user.username" class="rounded" type="text" title="username" />
             </td>
           </tr>
           <tr>
             <td>Password:</td>
             <td>
-              <input [(ngModel)]="user.password" class="rounded" type="password"/>
+              <input [(ngModel)]="user.password" class="rounded" type="password" title="password" id="togglePasswordIcon" />
             </td>
           </tr>
           <tr>
             <td>First Name:</td>
             <td>
-              <input [(ngModel)]="user.firstname" class="rounded" type="text"  />
+              <input [(ngModel)]="user.firstname" class="rounded" type="text" title="firstname" />
             </td>
           </tr>
           <tr>
             <td>Last Name:</td>
             <td>
-              <input [(ngModel)]="user.lastname" class="rounded" type="text"  />
+              <input [(ngModel)]="user.lastname" class="rounded" type="text" title="lastname" />
             </td>
           </tr>
           <tr>
             <td>Phone:</td>
             <td>
-                <input [(ngModel)]="user.phone" class="rounded" type="text"  />
+              <input [(ngModel)]="user.phone" class="rounded" type="text" title="phone" />
             </td>
           </tr>
           <tr>
             <td>Email:</td>
             <td>
-                <input [(ngModel)]="user.email" class="rounded" type="text" />
+              <input [(ngModel)]="user.email" class="rounded" type="text" title="email" />
             </td>
-            <tr>
-          <td><label for="reviewer">Reviewer:</label></td>
-          <td>
-            <input [(ngModel)]="user.reviewer" class="rounded" type="checkbox" id="reviewer" name="reviewer" />
-          </td>
-        </tr>
-        <tr>
-          <td><label for="admin">Admin:</label></td>
-          <td>
-              <input [(ngModel)]="user.admin" class="rounded" type="checkbox" id="admin" name="admin"  />
-          </td>
-        </tr>
-      </table>
+          <tr>
+            <td><label for="reviewer">Reviewer:</label></td>
+            <td>
+              <input [(ngModel)]="user.reviewer" class="rounded" type="checkbox" id="reviewer" name="reviewer" />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="admin">Admin:</label></td>
+            <td>
+              <input [(ngModel)]="user.admin" class="rounded" type="checkbox" id="admin" name="admin" />
+            </td>
+          </tr>
+        </table>
       </main>
       <span>
         <button (click)="save()" class="btn btn-sm btn-primary">Save</button>
@@ -75,6 +70,3 @@
     </div>
   </div>
 </body>
-
-
-

@@ -11,6 +11,7 @@ export class Request{
     total: number;
     submittedDate: Date;
     reasonForRejection: string;
+  userId: any;
 
 
 constructor(

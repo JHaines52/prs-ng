@@ -31,7 +31,7 @@ export class ProductCreateComponent implements OnInit {
         this.vendors = resp;
       },
       error: (err) => {
-        console.log('Product Create - error getting movies.');
+        console.log('Product Create - error getting vendors.', err.message);
       },
       complete: () => {},
     });
