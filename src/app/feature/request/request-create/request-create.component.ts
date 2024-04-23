@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { Request } from 'src/app/model/request';
 import { RequestService } from 'src/app/service/request.service';
-import { UserService } from 'src/app/service/user.service';
 import { SystemService } from 'src/app/service/system.service';
 
 @Component({

@@ -13,14 +13,12 @@ import { SystemService } from 'src/app/service/system.service';
 export class RequestReviewsComponent implements OnInit {
   title: string = 'Request-Reviews';
   requests: Request[] = [];
-  //userId: number = 0;
   requestStatus: boolean = false;
   message?: string = undefined;
 
   constructor(
     private requestSvc: RequestService,
     private systemSvc: SystemService,
-    private router: Router,
     private route: ActivatedRoute
   ) { }
 
@@ -28,9 +26,7 @@ export class RequestReviewsComponent implements OnInit {
   ngOnInit(): void {
     // Ensuring loggedInUser is properly initialized from the service
     //this.userId = this.systemSvc.loggedInUserID ();
-    this.systemSvc.checkLogin();
-    //console.log("UserID = " + this.userId);
-    
+    this.systemSvc.checkLogin();    
 
     this.route.params.subscribe({
       next: (urlParams) => {

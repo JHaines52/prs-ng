@@ -39,6 +39,7 @@ input[type="text"],
 input[type="number"],
 input[type="date"] {
     padding: 10px;
+    width: 200px;       /* Uniform width */
     color-scheme: dark;
     margin-bottom: 20px;
     border: none;
@@ -51,6 +52,7 @@ input[type="date"] {
 
 #drop{
     padding: 10px;
+    width: 215px;
     margin-bottom: 20px;
     border: none;
     border-radius: 5px;

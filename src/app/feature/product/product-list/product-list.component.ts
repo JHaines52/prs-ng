@@ -23,36 +23,32 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.systemSvc.checkLogin();
     this.showAddIcon = this.systemSvc.isAdmin();
     this.productSvc.getAllProducts().subscribe({
-      next:(resp) => {
+      next: (resp) => {
         this.products = resp;
-        if (this.products.length > 0){
+        if (this.products.length > 0) {
           this.currentIndex = 0;
         }
         this.navigate;
-        
+
       },
-      error: (err) =>{
+      error: (err) => {
         console.log(err);
       },
-      complete: () => {}
-
-
+      complete: () => { }
     });
-    
-    
   }
+
   navigate(direction: string): void {
     if (this.products.length === 0) return; // Exit if there are no products to navigate through
-    
+
     if (direction === 'next') {
       this.currentIndex = (this.currentIndex + 1) % this.products.length;
     } else if (direction === 'prev') {
       this.currentIndex = (this.currentIndex - 1 + this.products.length) % this.products.length;
     }
   }
-
-  
 }
 

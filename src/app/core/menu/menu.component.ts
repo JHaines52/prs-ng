@@ -30,7 +30,7 @@ export class MenuComponent implements OnInit {
 
     //populates a message when the user is logged in 
     if (this.systemSvc.isUserLoggedIn()) {
-      if(this.systemSvc.isReviewer()){
+      if(this.systemSvc.loggedInUser.reviewer){
         this.menuItems.push(new MenuItem('Review', '/request/reviews/' + userId, 'Request Reviews'));
       }
       this.menuItems.push(new MenuItem('Logout', '/user/login', 'User Logout'));

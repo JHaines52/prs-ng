@@ -8,7 +8,6 @@ import { ProductService } from 'src/app/service/product.service';
 import { RequestService } from 'src/app/service/request.service';
 import { VendorService } from 'src/app/service/vendor.service';
 import { Vendor } from 'src/app/model/vendor';
-import { SystemService } from 'src/app/service/system.service';
 import { User } from 'src/app/model/user';
 
 @Component({
@@ -31,7 +30,6 @@ export class LineitemCreateComponent implements OnInit {
     private productSvc: ProductService,
     private vendorSvc: VendorService,
     private requestSvc: RequestService,
-    private systemSvc: SystemService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
@@ -66,7 +64,6 @@ export class LineitemCreateComponent implements OnInit {
         });
       }
       
-    
 
   loadProducts(): void {
     this.productSvc.getAllProducts().subscribe({
@@ -90,9 +87,7 @@ export class LineitemCreateComponent implements OnInit {
       },
       complete: () => { },
     });
-
   }
-
 
   save(): void {
     this.lineitemSvc.createLineItem(this.lineitem).subscribe({
@@ -111,7 +106,5 @@ export class LineitemCreateComponent implements OnInit {
   compareWithProd(p: Product, v: Vendor): boolean {
     return p && v && p.id === v.id;
   }
-
-
 }
 

@@ -1,6 +1,5 @@
 <app-menu></app-menu>
 <html>
-
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lines Items</title>
@@ -55,7 +54,7 @@
           <td>{{lineitem.product.price}} </td>
           <td>{{lineitem.quantity * lineitem.product.price}} </td>
           <td>
-            <a routerLink="/lineitem/edit/{{ lineitem.id }}">
+            <a routerLink="/lineitem/edit/{{lineitem.id}}">
               <img width="20" height="20" src="assets/pencil-icon.png" title="Edit Line Items" />
             </a>
             <a (click)="delete(lineitem.id)">

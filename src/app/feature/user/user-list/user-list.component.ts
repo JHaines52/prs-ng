@@ -19,7 +19,7 @@ export class UserListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+    this.systemSvc.checkLogin();
     this.showAddIcon = this.systemSvc.isAdmin();
     this.userSvc.getAllUsers().subscribe({
       next: (resp) => {

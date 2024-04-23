@@ -41,6 +41,7 @@ input[type="datetime"] {
     padding: 10px;
     color-scheme: dark;
     margin-bottom: 20px;
+    width: 200px;
     border: none;
     border-radius: 5px;
     background-color: #1c1136; 
@@ -51,6 +52,7 @@ input[type="datetime"] {
 #drop {
     padding: 10px;
     margin-bottom: 20px;
+    width: 215px;
     border: none;
     border-radius: 5px;
     background-color: #1c1136; 

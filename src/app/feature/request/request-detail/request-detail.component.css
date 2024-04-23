@@ -42,6 +42,7 @@ input[type="datetime"]
  {  color-scheme: dark;
     padding: 10px;
     margin-bottom: 20px;
+    width: 200px;
     border: none;
     border-radius: 5px;
     background-color: #112736; 

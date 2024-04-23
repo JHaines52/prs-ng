@@ -5,36 +5,29 @@ body {
     padding: 0;
 
 }
-
-.component-title {
-    color: #f1f1f4;
-    margin-bottom: 10px;
-    font-size: 14pt;
-}
-
-
 .form-container {
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
     background: rgba(8, 69, 71, 0.75);
-    /* Semi-transparent*/
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2),
-        /* Outer shadow for depth */
         inset 0px 1px 2px rgba(255, 255, 255, 0.8);
-    /* Inner light for inset effect */
     border-radius: 10px;
+    direction: initial;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    /* Removes space between borders */
 }
-
 .table table-sm {
     display: flex;
     flex-direction: column;
+}
+.component-title {
+    color: #f1f1f4;
+    margin-bottom: 10px;
+    font-size: 14pt;
 }
 
 label {
@@ -42,64 +35,45 @@ label {
     font-size: 12pt;
 }
 
-select {
-    padding: 4px 8px;
-    border: 1px solid #ffffff;
-    border-radius: 4px;
-    background-color: #1b2f37;
-    color: #fff;
-    margin: 5px;
-    width: calc(100% - 20px);
-}
-
-select:hover {
-    background-color: #27343f;
-}
-
-select:disabled {
-    opacity: 0.5;
-}
-
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+input[type="date"],
+input[type="datetime"]  {
     padding: 10px;
     margin-bottom: 20px;
+    width: 200px;
     border: none;
     border-radius: 5px;
     background-color: #112736;
     color: #f0f8ff;
-    /* Light text color */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4),
-        /* More pronounced shadow on focus */
         inset 0px 1px 2px rgba(255, 255, 255, 0.8);
-    /* Inner light for inset effect */
+
 }
 
 #drop {
     padding: 10px;
     margin-bottom: 20px;
+    width: 215px;
     border: none;
     border-radius: 5px;
     background-color: #112736;
     color: #f0f8ff;
-    /* Light text color */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4),
-        /* More pronounced shadow on focus */
         inset 0px 1px 2px rgba(255, 255, 255, 0.8);
-    /* Inner light for inset effect */
 }
 
 td {
     color: #f1f1f4;
+    align-items: normal;
+    
 }
 
 
 button {
     padding: 10px 20px;
     background-color: #1d4763;
-    /* Teal color for the button */
     color: #e4f9f5;
-    /* Light teal text */
     border: none;
     border-radius: 5px;
     cursor: pointer;

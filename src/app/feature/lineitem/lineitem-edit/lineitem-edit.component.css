@@ -7,7 +7,7 @@ body {
 }
 .component-title{
     color:#f1f1f4;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-size: 14pt;
 }
 
@@ -28,6 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     color:aliceblue;
+    padding: 10px;
 }
 
 label {
@@ -37,10 +38,10 @@ label {
 
 input[type="text"],
 input[type="number"],
-input[type="checkbox"],
-textarea {
+input[type="checkbox"] {
     padding: 10px;
     margin-bottom: 20px;
+    width: 200px;
     border: none;
     border-radius: 5px;
     background-color: #1c1136; 
@@ -49,7 +50,20 @@ textarea {
     inset 0px 1px 2px rgba(255, 255, 255, 0.8); /* Inner light for inset effect */
 }
 
-
+#drop {
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 215px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1c1136;
+    color: #f0f8ff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4),
+        /* More pronounced shadow on focus */
+        inset 0px 1px 2px rgba(255, 255, 255, 0.8);
+    /* Inner light for inset effect */
+}
 
 button {
     padding: 10px 20px;

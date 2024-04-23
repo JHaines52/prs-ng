@@ -1,36 +1,46 @@
+<app-menu></app-menu>
 
-<app-menu></app-menu>
-<div class="form-container">
-  <span class="component-title">{{ title }}</span>
-  <p *ngIf="!lineitem">Loading...</p>
-  <div *ngIf="lineitem">
-    <main class="single">
-      <table class="table table-sm">
-        <tr>
-          <td>Request</td>
-          <td>
-            <input [(ngModel)]="lineitem.request.id" class="rounded" type="number" />
-          </td>
-          <td>Products:</td>
-              <td>
-                <select [(ngModel)]="lineitem.product" [compareWith]="compareWithProd" class="rounded" id="drop">
-                  <option *ngFor="let product of products" [ngValue]="product">
-                    {{ product.vendor.name }} | {{ product.name }}
-                  </option>
-                </select>                
-              </td>
-        </tr>
-        <tr>
-          <td>Quantity:</td>
-          <td>
-            <input [(ngModel)]="lineitem.quantity" class="rounded" type="number" />
-          </td>
-        </tr>
-      </table>
-    </main>
-    <span><button (click)="save()" class="btn btn-sm btn-primary">
-        Save
-      </button></span>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Line Item Create Form</title>
+  <link rel="stylesheet" href="lineitem-create.component.css">
+</head>
+
+<body>
+  <div class="form-container">
+    <span class="component-title">{{ title }}</span>
+    <p *ngIf="!lineitem">Loading...</p>
+    <div *ngIf="lineitem">
+      <main class="single">
+        <table class="table table-sm">
+          <tr>
+            <td>Request</td>
+            <td>
+              <input [(ngModel)]="lineitem.request.id" class="rounded" type="number" />
+            </td>
+          </tr>
+          <tr>
+            <td>Products:</td>
+            <td>
+              <select [(ngModel)]="lineitem.product" [compareWith]="compareWithProd" class="rounded" id="drop">
+                <option *ngFor="let product of products" [ngValue]="product">
+                  {{ product.vendor.name }} | {{ product.name }}
+                </option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Quantity:</td>
+            <td>
+              <input [(ngModel)]="lineitem.quantity" class="rounded" type="number" />
+            </td>
+          </tr>
+        </table>
+      </main>
+      <span><button (click)="save()" class="btn btn-sm btn-primary">
+          Save
+        </button></span>
+    </div>
   </div>
-</div>
-<app-menu></app-menu>
+</body>

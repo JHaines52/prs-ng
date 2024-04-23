@@ -15,7 +15,7 @@ export class RequestEditComponent implements OnInit {
   title: string = 'Request-Edit';
   request: Request = new Request();
   requestId: number = 0;
- users: User[] = [];
+  users: User[] = [];
   message?: string = undefined;
 
   constructor(
@@ -23,7 +23,7 @@ export class RequestEditComponent implements OnInit {
     private userSvc: UserService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe({
@@ -38,7 +38,7 @@ export class RequestEditComponent implements OnInit {
       error: (err) => {
         console.log('Error editing Request: ', err);
       },
-      complete: () => {},
+      complete: () => { },
     });
     this.userSvc.getAllUsers().subscribe({
       next: (resp) => {
@@ -47,9 +47,9 @@ export class RequestEditComponent implements OnInit {
       error: (err) => {
         console.log('Request Create - error getting movies.');
       },
-      complete: () => {},
+      complete: () => { },
     });
-  
+
   }
 
   save(): void {
@@ -63,12 +63,10 @@ export class RequestEditComponent implements OnInit {
         console.log('Error updating request: ', err);
         this.message = 'Error updating Request.';
       },
-      complete: () => {},
+      complete: () => { },
     });
   }
   compUser(a: User, b: User): boolean {
     return a && b && a.id === b.id;
   }
-
- 
 }

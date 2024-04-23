@@ -9,7 +9,7 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-users = [{username: "", password: ""}];
+  users = [{username: "", password: ""}];
   title:string = 'User Detail';
   user: User = new User();
   userId: number = 0;
@@ -31,13 +31,13 @@ users = [{username: "", password: ""}];
               this.user = parms;
             },
             error: (err) => {
-              console.log('Error getting user by id: ', err);
+              console.log('Error getting user by id: ', err.message);
             },
             complete: () => {}
           });
         },
         error: (err) => {
-          console.log('Error getting id from url: ', err)
+          console.log('Error getting id from url: ', err.message)
         },
         complete: () => {},
       });
@@ -61,13 +61,7 @@ users = [{username: "", password: ""}];
         },
         complete: () => {},
       });
-
-     
-    }
-    maskPassword(password:string): string {
-      return '************';
-    }
-  
+    } 
   
   }
   

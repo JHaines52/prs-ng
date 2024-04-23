@@ -21,7 +21,7 @@ export class LineitemEditComponent implements OnInit {
   message?: string = undefined;
   selectedProduct?: Product;
   
-
+//fix the link back to the lines
   constructor(
     private lineitemSvc: LineitemService,
     private requestSvc: RequestService,
@@ -54,8 +54,6 @@ export class LineitemEditComponent implements OnInit {
               });
             }
           },
-
-
         });
       },
       error: (err) => {
@@ -63,7 +61,6 @@ export class LineitemEditComponent implements OnInit {
       },
       complete: () => { },
     });
-
   }
 
 
@@ -72,7 +69,7 @@ export class LineitemEditComponent implements OnInit {
     this.lineitemSvc.updateLineItem(this.lineitem).subscribe({
       next: (resp) => {
         this.lineitem = resp;
-        this.router.navigateByUrl('request/lines/lineitemId"');
+        this.router.navigateByUrl('request/lines/'+this.lineitemId);
       },
       error: (err) => {
         console.log('Error updating lineitem: ', err);
@@ -84,6 +81,5 @@ export class LineitemEditComponent implements OnInit {
   compareProd(a: Product, b: Product): boolean {
     return a && b ? a.id === b.id : a === b;
   }
-
 }
 

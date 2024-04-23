@@ -65,22 +65,20 @@ export class LinesComponent implements OnInit {
           console.log('LinesComponent - error deleting Lines.');
           this.message = 'LinesComponent - error deleting Lines.';
         } else {
-          this.router.navigateByUrl('request/list');
+          this.router.navigateByUrl('request/lines/id');
         }
-      },
+      },//redirect back to the lines
       error: (err) => {
         console.log('Error deleting request: ' + err.message);
       },
       complete: () => { },
     });
   }
-
-
   submit() {
     this.requestSvc.submitRequestForReview(this.requestId).subscribe({
       next: (request) => {
         this.requestId = request['id']
-        this.router.navigateByUrl('/request/list')
+        this.router.navigateByUrl('/request/lines/'+this.requestId)
       },
       error: (err) => {
         console.log('Error submitting request: ' + err.message);

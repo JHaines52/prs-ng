@@ -25,11 +25,8 @@ import { ProductListComponent } from './feature/product/product-list/product-lis
 import { LinesComponent } from './feature/lineitem/lines/lines.component';
 import { LineitemCreateComponent } from './feature/lineitem/lineitem-create/lineitem-create.component';
 import { LineitemEditComponent } from './feature/lineitem/lineitem-edit/lineitem-edit.component';
-import { LineitemDetailComponent } from './feature/lineitem/lineitem-detail/lineitem-detail.component';
 import { UserLoginComponent } from './feature/user-login/user-login/user-login.component';
-import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
 import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
-import { RequestRejectComponent } from './feature/request/request-reject/request-reject.component';
 import { RequestReviewsComponent } from './feature/request/request-reviews/request-reviews.component';
 
 
@@ -57,11 +54,8 @@ import { RequestReviewsComponent } from './feature/request/request-reviews/reque
     LinesComponent,
     LineitemCreateComponent,
     LineitemEditComponent,
-    LineitemDetailComponent,
     UserLoginComponent,
-    RequestReviewComponent,
     RequestApproveComponent,
-    RequestRejectComponent,
     RequestReviewsComponent
 
   ],

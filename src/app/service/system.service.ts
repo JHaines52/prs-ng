@@ -28,14 +28,14 @@ export class SystemService {
     return this.loggedInUser && this.loggedInUser.id > 0;
   }
   isReviewer(): boolean {
-    if(this.loggedInUser.admin == false){
+    if(this.loggedInUser.reviewer == false){
       return  false;
     }
     return true;
   }
 
   isAdmin(): boolean {
-    if(this.loggedInUser.reviewer == false){
+    if(this.loggedInUser.admin == false){
       return false;
     }
     return true;

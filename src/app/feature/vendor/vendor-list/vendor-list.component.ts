@@ -18,7 +18,7 @@ export class VendorListComponent implements OnInit {
   
   ngOnInit(): void {
     this.showAddIcon = this.systemSvc.isAdmin();
-
+    this.systemSvc.checkLogin();
     this.vendorSvc.getAllVendors().subscribe({
       next:(resp) => {
         this.vendors = resp;

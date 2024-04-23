@@ -16,7 +16,7 @@ body {
     margin: 50px auto;
     padding: 20px;
     background: rgba(33, 8, 71, 0.75); /* Semi-transparent*/
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), /* Outer shadow for depth */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), /* Outer shadow for depth */
               inset 0px 1px 2px rgba(255, 255, 255, 0.8); /* Inner light for inset effect */
     border-radius: 10px;
     
@@ -38,6 +38,7 @@ input[type="checkbox"],
 textarea {
     padding: 10px;
     margin-bottom: 20px;
+    width: 200px;
     border: none;
     border-radius: 5px;
     background-color: #1c1136; 
@@ -45,7 +46,19 @@ textarea {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4), /* More pronounced shadow on focus */
     inset 0px 1px 2px rgba(255, 255, 255, 0.8); /* Inner light for inset effect */
 }
-
+#drop {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 215px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1c1136;
+    color: #f0f8ff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4),
+        /* More pronounced shadow on focus */
+        inset 0px 1px 2px rgba(255, 255, 255, 0.8);
+    /* Inner light for inset effect */
+}
 
 
 button {

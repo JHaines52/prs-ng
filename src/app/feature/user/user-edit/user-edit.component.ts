@@ -31,7 +31,7 @@ message?: string = undefined;
         });
       },
       error: (err) => {
-        console.log("Error editing User: ", err);
+        console.log("Error editing User: ", err.message);
       }
     })
   }
@@ -42,7 +42,7 @@ message?: string = undefined;
         this.router.navigateByUrl('/user/list');
       },
       error: (err) =>{
-        console.log("Error updating user: ", err);
+        console.log("Error updating user: ", err.message);
         this.message = "Error updating User.";
       },
       complete: () => { }

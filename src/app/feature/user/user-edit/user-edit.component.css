@@ -19,6 +19,7 @@ body {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), /* Outer shadow for depth */
               inset 0px 1px 2px rgba(255, 255, 255, 0.8); /* Inner light for inset effect */
     border-radius: 10px;
+    color-scheme: dark;
     
 }
 
