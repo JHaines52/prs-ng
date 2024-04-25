@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../model/product';
+import { User } from '../model/user';
 
 const URL: string = 'http://localhost:8080/api/products';
 
@@ -17,6 +18,10 @@ export class ProductService {
   getAllProducts(): Observable<Product[]> {
     return this.http.get(URL+"/") as Observable<Product[]>;
   }
+
+  // getProductsByUserId(id: number): Observable<Product[]>{
+  //   return this.http.get(URL+"/"+user.id) as Observable<Product>;
+  // }
 
   getProductById(id: number): Observable<Product> {
    

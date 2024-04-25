@@ -28,6 +28,8 @@ import { LineitemEditComponent } from './feature/lineitem/lineitem-edit/lineitem
 import { UserLoginComponent } from './feature/user-login/user-login/user-login.component';
 import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
 import { RequestReviewsComponent } from './feature/request/request-reviews/request-reviews.component';
+import { OrderByPipe } from './pipe/order-by.pipe';
+import { UserProfileComponent } from './feature/user/user-profile/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { RequestReviewsComponent } from './feature/request/request-reviews/reque
     LineitemEditComponent,
     UserLoginComponent,
     RequestApproveComponent,
-    RequestReviewsComponent
+    RequestReviewsComponent,
+    OrderByPipe,
+    UserProfileComponent
 
   ],
   imports: [

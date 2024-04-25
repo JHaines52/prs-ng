@@ -23,6 +23,7 @@ import { LineitemEditComponent } from './feature/lineitem/lineitem-edit/lineitem
 import { UserLoginComponent } from './feature/user-login/user-login/user-login.component';
 import { RequestReviewsComponent } from './feature/request/request-reviews/request-reviews.component';
 import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
+import { UserProfileComponent } from './feature/user/user-profile/user-profile/user-profile.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'user/create', component: UserCreateComponent },
   { path: 'user/edit/:id', component: UserEditComponent },
   { path: 'user/detail/:id', component: UserDetailComponent },
+  { path: 'request/user/:id', component: UserProfileComponent},
   { path: 'vendor/list', component: VendorListComponent },
   { path: 'vendor/create', component: VendorCreateComponent },
   { path: 'vendor/edit/:id', component: VendorEditComponent },

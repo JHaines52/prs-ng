@@ -1,0 +1,66 @@
+<app-menu></app-menu>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="user-profile.component.css">
+</head>
+<body>
+    <div class="user-profile">
+        <div *ngIf="user">
+        <section class="heading">
+            <span class="component-title">{{ title }}</span>
+          </section>
+          <div class="vertical-table sm table-striped">
+            <div class="vertical-table-row">
+              <div class="vertical-table-header">User</div>
+              <div class="vertical-table-cell">{{ user.firstname }} {{user.lastname}}</div>
+            </div>
+            <div class="vertical-table-row">
+                <div class="vertical-table-header">Profile Picture</div>
+                <div class="vertical-table-cell"><img [src]="user.profilePhoto" alt="profile-image"/></div>
+              </div>
+              <div class="vertical-table-row">
+                <div class="vertical-table-header">Email</div>
+                <div class="vertical-table-cell">{{ user.email }}</div>
+              </div>
+              <div class="vertical-table-row">
+                <div class="vertical-table-header">Username</div>
+                <div class="vertical-table-cell">{{ user.username }}</div>
+              </div>
+        </div>
+    </div>
+    </div>
+    <div>
+    <div class="summary">
+        <div *ngIf="lineItems.length > 0" class="lineitem-carousel">
+          <button (click)="navigate('prev')">&#10094;</button> 
+            <div class="vertical-table sm table-striped">
+              <div class="vertical-table-row">
+                <div class="vertical-table-header">Vendor</div>
+                <div class="vertical-table-cell">{{ lineItems[currentIndex].product.vendor.name }} </div>
+              </div>
+              <div class="vertical-table-row">
+                <div class="vertical-table-header">Product</div>
+                <div class="vertical-table-cell">{{ lineItems[currentIndex].product.name }}</div>
+              </div>
+              <div class="vertical-table-row">
+                <div class="vertical-table-header">Photo</div>
+                <div class="vertical-table-cell"><img [src]="lineItems[currentIndex].product.photoPath" alt="product-image"/></div>
+              </div>
+              <div class="vertical-table-row">
+                <div class="vertical-table-header">Quantity</div>
+                <div class="vertical-table-cell">{{ lineItems[currentIndex].quantity }}</div>
+              </div>
+              <div class="vertical-table-row">
+                <div class="vertical-table-header">Total</div>
+                <div class="vertical-table-cell">{{ lineItems[currentIndex].request.total | currency }}</div>
+              </div>
+              </div>
+            </div>
+          <button (click)="navigate('next')">&#10095;</button>
+        </div>
+        <p *ngIf="requests.length === 0">No products available.</p>
+    </div>
+</body>
+

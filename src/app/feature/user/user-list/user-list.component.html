@@ -26,7 +26,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users">
+        <tr *ngFor="let user of users  | orderBy: 'firstname': true" >
           <td>{{ user.username }}</td>
           <td>{{ user.firstname }}</td>
           <td>{{ user.lastname }}</td>
@@ -48,12 +48,10 @@
               />
             </a>
             <a routerLink="/user/edit/{{ user.id }}">
-              <img
-                width="20"
-                height="20"
-                src="assets/pencil-icon.png"
-                title="Edit User"
-              />
+              <img width="20" height="20" src="assets/pencil-icon.png" title="Edit User" />
+            </a>
+            <a routerLink="/request/user/{{ user.id }}">
+              <img width="20" height="20" src="assets/elf.png" title="User Profile" />
             </a>
           </td>
         </tr>

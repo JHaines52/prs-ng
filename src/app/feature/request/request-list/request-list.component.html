@@ -25,12 +25,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let request of requests">
+        <tr *ngFor="let request of requests | orderBy:'total': true ">
           <td>{{ request.user.firstname }} {{ request.user.lastname }}</td>
           <td>{{ request.description }}</td>
-          <td>{{request.justification}}</td>
-          <td>{{request.status}} </td>
-          <td>{{ request.total}}</td>
+          <td>{{ request.justification }}</td>
+          <td>{{ request.status }} </td>
+          <td>{{ request.total | currency }}</td>
           <td>
             <a routerLink="/request/detail/{{ request.id }}">
               <img width="20" height="20" src="assets/details.png" title="Request Details" />

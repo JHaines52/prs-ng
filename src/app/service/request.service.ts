@@ -24,6 +24,10 @@ export class RequestService {
     return this.http.get(URL + '/' + id) as Observable<Request>;
   }
 
+  getRequestsByUserId(id: number): Observable<Request[]>{
+    return this.http.get(URL+ "/user/"+ id) as Observable<Request[]>;
+  }
+
   approveRequest(id: number): Observable<Request>{
     return this.http.post(URL+"/approve/"+id, null) as Observable<Request>;
   }

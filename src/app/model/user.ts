@@ -9,6 +9,7 @@ export class User{
     reviewer: boolean;
     admin: boolean;
     isAdmin?: boolean;
+    profilePhoto: string;
 
 constructor(
     id: number = 0,
@@ -19,7 +20,8 @@ constructor(
     phone: string = "",
     email: string = "",
     reviewer: boolean = false,
-    admin: boolean = false
+    admin: boolean = false,
+    profilePhoto: string = "",
 ){
     this.id = id;
     this.username = username;
@@ -30,6 +32,7 @@ constructor(
     this.email = email;
     this.reviewer = reviewer;
     this.admin = admin;
+    this.profilePhoto = profilePhoto;
 }
 details(): string{
     return `User id ${this.id}: ${this.firstname} ${this.lastname} phone: ${this.phone} email: ${this.email}`;
