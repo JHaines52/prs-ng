@@ -7,7 +7,6 @@ import { Product } from 'src/app/model/product';
 import { LineitemService } from 'src/app/service/lineitem.service';
 import { ProductService } from 'src/app/service/product.service';
 import { RequestService } from 'src/app/service/request.service';
-import { SystemService } from 'src/app/service/system.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -19,7 +18,7 @@ export class UserProfileComponent implements OnInit {
   title: string = 'User Profile'
   message?: string = undefined;
   lineItems: LineItem[] = [];
-  products?: Product[] = undefined;
+  products: Product[] = [];
   requests: Request[] = [];
   username: string = '';
   userId: number = 0;
@@ -55,7 +54,17 @@ export class UserProfileComponent implements OnInit {
                 this.lineItems = lines;
                 this.productSvc.getAllProducts().subscribe({
                   next: (prod) => {
-                    this.products = prod;
+                    // Process each request to find its corresponding products
+                    this.requests.forEach(request => {
+                      // Filter line items that belong to the current request
+                      const relevantLineItems = lines.filter(lineItem => lineItem.request.id === request.id);
+                      // Extract product IDs from these line items
+                      const productIds = relevantLineItems.map(item => item.product.id);
+                      // Filter products that match the product IDs from the line items
+                      const matchedProducts = prod.filter(product => productIds.includes(product.id));
+                      // Optionally, store the matched products in the request object or handle them as needed
+                     this.products = matchedProducts;
+                    });
                   },
                   error: (err) => {
                     console.log('Error getting products:', err.message);
@@ -78,14 +87,14 @@ export class UserProfileComponent implements OnInit {
       },
     });
   }
-    navigate(direction: string): void {
-      if (this.lineItems.length === 0) return; // Exit if there are no products to navigate through
-  
-      if (direction === 'next') {
-        this.currentIndex = (this.currentIndex + 1) % this.lineItems.length;
-      } else if (direction === 'prev') {
-        this.currentIndex = (this.currentIndex - 1 + this.lineItems.length) % this.lineItems.length;
-      }
+  navigate(direction: string): void {
+    if (this.lineItems.length === 0) return; // Exit if there are no products to navigate through
+
+    if (direction === 'next') {
+      this.currentIndex = (this.currentIndex + 1) % this.lineItems.length;
+    } else if (direction === 'prev') {
+      this.currentIndex = (this.currentIndex - 1 + this.lineItems.length) % this.lineItems.length;
     }
   }
-  
+}
+

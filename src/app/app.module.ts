@@ -30,6 +30,7 @@ import { RequestApproveComponent } from './feature/request/request-approve/reque
 import { RequestReviewsComponent } from './feature/request/request-reviews/request-reviews.component';
 import { OrderByPipe } from './pipe/order-by.pipe';
 import { UserProfileComponent } from './feature/user/user-profile/user-profile/user-profile.component';
+import { GameComponent } from './feature/game/game.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { UserProfileComponent } from './feature/user/user-profile/user-profile/u
     RequestApproveComponent,
     RequestReviewsComponent,
     OrderByPipe,
-    UserProfileComponent
+    UserProfileComponent,
+    GameComponent
 
   ],
   imports: [

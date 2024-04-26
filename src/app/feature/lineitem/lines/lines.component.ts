@@ -78,7 +78,7 @@ export class LinesComponent implements OnInit {
     this.requestSvc.submitRequestForReview(this.requestId).subscribe({
       next: (request) => {
         this.requestId = request['id']
-        this.router.navigateByUrl('/request/lines/'+this.requestId)
+        this.router.navigateByUrl('request/list')
       },
       error: (err) => {
         console.log('Error submitting request: ' + err.message);

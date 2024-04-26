@@ -24,6 +24,7 @@ import { UserLoginComponent } from './feature/user-login/user-login/user-login.c
 import { RequestReviewsComponent } from './feature/request/request-reviews/request-reviews.component';
 import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
 import { UserProfileComponent } from './feature/user/user-profile/user-profile/user-profile.component';
+import { GameComponent } from './feature/game/game.component';
 
 
 const routes: Routes = [
@@ -52,6 +53,7 @@ const routes: Routes = [
   { path: 'product/detail/:id', component: ProductDetailComponent },
   { path: 'lineitem/create/:id', component: LineitemCreateComponent },
   { path: 'lineitem/edit/:id', component: LineitemEditComponent },
+  { path: 'play', component: GameComponent},
   { path: '**', component: UserListComponent },
 ];
 

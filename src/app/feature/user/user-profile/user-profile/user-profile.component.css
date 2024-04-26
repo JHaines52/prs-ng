@@ -1,80 +1,70 @@
-body{
-    color: #f1f1f4;
+
+.container {
+  display: flex;
+  justify-content:space-evenly; /* Ensures even spacing and distribution */
+  align-items:baseline; /* Aligns items to stretch to fill the container */
+  border-collapse: collapse;
 }
 .product-carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  align-items: center;
 
-  }
-  
-  .product-display {
-    overflow: hidden;
-    width: 100%; /* Adjust based on your layout needs */
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  button {
-    cursor: pointer;
-    padding: 10px;
-    margin: 5px;
-    font-size: 24px;
-    border: none;
-    background-color: transparent;
-    color-scheme: dark;
-  }
+}
 
+button {
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px;
+  font-size: 24px;
+  border: none;
+  background-color: transparent;
+  color-scheme: dark;
+}
 
+body{
+  color: #f1f1f4;
+}
+.user-profile{
+  padding: 30px;
+  background-color: #2e2f2f;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(254, 253, 253, 0.723);
+}
+
+ .summary {
+  flex: 1; 
+  margin: 20px; 
+  padding: 30px;
+  background: rgb(6, 6, 6); 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(254, 253, 253, 0.723);
+
+}
+
+.vertical-table-header {
+  display: table-cell;
+  padding-top: 8px;
+  border: none;
+  vertical-align: middle;
+  font-weight: bold;
+  color: #a0a0a3;
+
+}
 .component-title{
-    color:#f1f1f4;
-    margin-bottom: 10px;
-    font-size: 14pt;
+  color:#f1f1f4;
+  margin-bottom: 10px;
+  font-size: 14pt;
 }
-.product-image {
-    width: 100px;  /* Set width to your preference */
-    height: auto;  /* Maintain aspect ratio */
-    align-content: center;
-  }
-  .vertical-table {
-    display: table;
-    width: 100%; /* Adjust based on your preference */
-  }
-  
-  .vertical-table-row {
-    display: table-row;
-  }
-  
-  .vertical-table-header, .vertical-table-cell {
-    display: table-cell;
-    padding: 8px;
-    border: none;
-    vertical-align: middle;
-  }
-  
-  .vertical-table-header {
-    background-color: #2c3030;
-    font-weight: bold;
-  }
- .user-profile {
-    width: 600px;
-    margin: 50px auto;
-    background: rgba(41, 43, 44, 0.85); 
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(254, 253, 253, 0.723);
+
+
+.vertical-table {
+  width: 75%; /* Ensures the tables use the full width of their containers */
+  padding: 20px;
 }
-.summary{
-    width: 600px;
-    margin: 50px auto;
-    background-color: rgba(4, 4, 4, 0.85); 
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(254, 253, 253, 0.723);
+
+.vertical-table-cell img {
+  max-width: 100%; /* Makes images responsive within the table cells */
+  height: auto; /* Maintains aspect ratio */
+  padding: 10px;
 }
-.hidden {
-    display: none;
-}
+
+

@@ -1,0 +1,19 @@
+<app-menu class="menu"></app-menu>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="game.component.css">
+</head>
+<div class="app-container">
+    <h1>Welcome to the Game</h1>
+<span class="component-title">
+    {{ title }}
+  </span>
+<div>
+    <button (click)="play('GIANTS')"><img width="300" height="300" src="assets/images/giants.png" alt='GIANTS' /></button>
+    <button (click)="play('WIZARDS')"><img width="300" height="300" src="assets/images/wizards.png" alt='WIZARDS' /></button>
+    <button (click)="play('ELVES')"><img width="300" height="300" src="assets/images/elves.png" alt='ELVES' /></button>
+  </div>
+  <p>{{ message }}</p>
+</div>
+

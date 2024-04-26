@@ -34,7 +34,7 @@ export class UserLoginComponent implements OnInit {
         this.router.navigateByUrl('/home');
       },
       error: (err) => {
-        this.message = 'Invalid username / password combination. Please try again.';
+        this.message = 'Invalid username / password combination. Please try again.'+ err.message;
       },
       complete: () => {},
     });
