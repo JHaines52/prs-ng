@@ -16,4 +16,12 @@
   </div>
   <p>{{ message }}</p>
 </div>
+<div class="game-board">
+  <div *ngFor="let row of board; let i = index" class="board-row">
+    <button *ngFor="let cell of row; let j = index" mat-raised-button color="primary"
+            (click)="makeMove(i, j)">{{cell}}</button>
+  </div>
+</div>
+<button mat-button (click)="resetGame()">Reset Game</button>
+
 

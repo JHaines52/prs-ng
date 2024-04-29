@@ -12,7 +12,7 @@ export class GameService {
   constructor(private http: HttpClient) { }
 
   playGame(userChoice: string): Observable<any> {
-    return this.http.post(URL, { choice: userChoice });
+    return this.http.post(URL, userChoice );
   }
 }
 
